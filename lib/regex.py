@@ -1,10 +1,13 @@
 import re
 
-name = r"^[A-Z][a-z]*(?:['-][A-Z][a-z]*)*(?:\s[A-Z][a-z]*(?:['-][A-Z][a-z]*)*)*$"
-name_regex = re.compile(name)
+name_regex = re.compile(
+    r"^[A-Z][a-z]*(?:[-'][A-Z][a-z]*)*(?: [A-Z][a-z]*(?:[-'][A-Z][a-z]*)*)*$"
+)
 
-phone_number = r"^(\(\d{3}\)\s?|\d{3}[-.\s]?)\d{3}[-.\s]?\d{4}$"
-phone_regex = re.compile(phone_number)
+phone_regex = re.compile(
+    r"^(?:\(\d{3}\)\s?\d{3}-\d{4}|\d{10}|\d{3}[-.]\d{3}[-.]\d{4}|(?:\+1\s)?\d{3}\s\d{3}\s\d{4})$"
+)
 
-email_address = r"^[a-zA-Z][\w\.-]*@[\w\.-]+\.\w{2,}$"
-email_regex = re.compile(email_address)
+email_regex = re.compile(
+    r"^[a-zA-Z][\w\.-]*@[\w\.-]+\.\w{2,}$"
+)
